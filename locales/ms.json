@@ -1,0 +1,148 @@
+{
+  "app": {
+    "name": "MYBHA MyMFH Audit",
+    "tagline": "Sistem Pensijilan Hotel Mesra Muslim Saya"
+  },
+  "nav": {
+    "dashboard": "Papan Pemuka",
+    "hotels": "Hotel",
+    "audits": "Audit",
+    "certificates": "Sijil",
+    "settings": "Tetapan",
+    "logout": "Log Keluar"
+  },
+  "dashboard": {
+    "title": "Papan Pemuka",
+    "welcome": "Selamat kembali",
+    "stats": {
+      "totalHotels": "Jumlah Hotel",
+      "activeHotels": "Hotel Aktif",
+      "totalAudits": "Jumlah Audit",
+      "pendingAudits": "Menunggu Semakan",
+      "activeCerts": "Sijil Aktif",
+      "expiringCerts": "Tamat Tempoh (90 hari)"
+    },
+    "recentAudits": "Audit Terkini",
+    "expiringCerts": "Sijil Hampir Tamat Tempoh",
+    "tierDistribution": "Taburan Peringkat Pensijilan",
+    "noData": "Tiada data tersedia"
+  },
+  "hotels": {
+    "title": "Hotel",
+    "add": "Tambah Hotel",
+    "name": "Nama Hotel",
+    "address": "Alamat",
+    "city": "Bandar",
+    "state": "Negeri",
+    "country": "Negara",
+    "phone": "Telefon",
+    "email": "E-mel",
+    "pic": "Orang Yang Bertanggungjawab",
+    "memberId": "ID Ahli MYBHA",
+    "rooms": "Jumlah Bilik",
+    "status": "Status",
+    "active": "Aktif",
+    "inactive": "Tidak Aktif",
+    "save": "Simpan Hotel",
+    "edit": "Edit",
+    "auditHistory": "Sejarah Audit",
+    "noCerts": "Tiada sijil lagi"
+  },
+  "audits": {
+    "title": "Audit",
+    "new": "Audit Baharu",
+    "selectHotel": "Pilih Hotel",
+    "auditType": "Jenis Audit",
+    "selfAudit": "Audit Sendiri",
+    "conformityAssessment": "Penilaian Kesesuaian",
+    "status": {
+      "draft": "Draf",
+      "in_progress": "Sedang Dijalankan",
+      "submitted": "Diserahkan",
+      "approved": "Diluluskan",
+      "rejected": "Ditolak"
+    },
+    "progress": "Kemajuan",
+    "mandatory": "Keperluan Mandatori",
+    "silver": "Bonus Perak",
+    "gold": "Bonus Emas",
+    "pass": "Lulus",
+    "fail": "Gagal",
+    "notes": "Nota",
+    "uploadPhoto": "Muat Naik Foto",
+    "changePhoto": "Tukar Foto",
+    "submit": "Serahkan Audit",
+    "approve": "Luluskan & Keluarkan Sijil",
+    "reject": "Tolak",
+    "save": "Simpan Kemajuan",
+    "categories": {
+      "Room Facilities": "Kemudahan Bilik",
+      "Prayer Amenities": "Kemudahan Solat",
+      "Reception Services": "Perkhidmatan Resepsi",
+      "Food & Beverage": "Makanan & Minuman",
+      "Housekeeping": "Pengurusan Bilik",
+      "Premises Policy": "Dasar Premis",
+      "Staff Welfare": "Kebajikan Kakitangan",
+      "Entertainment": "Hiburan",
+      "Decor & Design": "Hiasan & Reka Bentuk",
+      "Documentation": "Dokumentasi",
+      "Training": "Latihan",
+      "Guest Services": "Perkhidmatan Tetamu"
+    }
+  },
+  "certificates": {
+    "title": "Sijil",
+    "certNumber": "No. Sijil",
+    "issuedDate": "Dikeluarkan",
+    "expiryDate": "Tamat Tempoh",
+    "tier": "Peringkat",
+    "download": "Muat Turun PDF",
+    "export": "Eksport Excel",
+    "active": "Aktif",
+    "revoked": "Dibatalkan",
+    "expired": "Tamat Tempoh",
+    "expiresIn": "Tamat dalam {days} hari",
+    "expiresSoon": "Hampir tamat tempoh",
+    "tiers": {
+      "bronze": "Gangsa",
+      "silver": "Perak",
+      "gold": "Emas"
+    }
+  },
+  "scoring": {
+    "bronze": "Gangsa ★★★",
+    "silver": "Perak ★★★★",
+    "gold": "Emas ★★★★★",
+    "notEligible": "Tidak layak — keperluan mandatori tidak dipenuhi",
+    "mandatoryFailed": "Item mandatori gagal",
+    "progressToSilver": "Kemajuan ke Perak: {current}/{required} item perak",
+    "progressToGold": "Kemajuan ke Emas: {current}/{required} item emas"
+  },
+  "auth": {
+    "login": "Log Masuk",
+    "email": "Alamat e-mel",
+    "password": "Kata laluan",
+    "signIn": "Log Masuk",
+    "loading": "Sedang log masuk..."
+  },
+  "common": {
+    "save": "Simpan",
+    "cancel": "Batal",
+    "delete": "Padam",
+    "edit": "Edit",
+    "view": "Lihat",
+    "back": "Kembali",
+    "next": "Seterusnya",
+    "loading": "Memuatkan...",
+    "error": "Ralat berlaku",
+    "success": "Berjaya",
+    "confirm": "Sahkan",
+    "search": "Cari",
+    "filter": "Tapis",
+    "all": "Semua",
+    "none": "Tiada",
+    "yes": "Ya",
+    "no": "Tidak",
+    "notAnswered": "Belum dijawab"
+  }
+}

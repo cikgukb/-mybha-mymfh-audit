@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;600;700&display=swap');
+
+:root {
+  --mybha-gold: #C9A84C;
+  --mybha-gold-light: #E8C97A;
+  --mybha-gold-dark: #9A7A2E;
+}
+
+[dir="rtl"] {
+  font-family: 'Noto Sans Arabic', sans-serif;
+}
+
+.tier-bronze { @apply bg-amber-50 text-amber-800 border-amber-300; }
+.tier-silver { @apply bg-slate-50 text-slate-700 border-slate-300; }
+.tier-gold   { @apply bg-yellow-50 text-yellow-700 border-yellow-300; }
+
+.star-gold   { color: #C9A84C; }
+.star-silver { color: #A8A9AD; }
+.star-bronze { color: #CD7F32; }

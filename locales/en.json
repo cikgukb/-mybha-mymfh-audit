@@ -1,0 +1,148 @@
+{
+  "app": {
+    "name": "MYBHA MyMFH Audit",
+    "tagline": "My Muslim Friendly Hotel Certification System"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "hotels": "Hotels",
+    "audits": "Audits",
+    "certificates": "Certificates",
+    "settings": "Settings",
+    "logout": "Sign Out"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome back",
+    "stats": {
+      "totalHotels": "Total Hotels",
+      "activeHotels": "Active Hotels",
+      "totalAudits": "Total Audits",
+      "pendingAudits": "Pending Review",
+      "activeCerts": "Active Certificates",
+      "expiringCerts": "Expiring (90 days)"
+    },
+    "recentAudits": "Recent Audits",
+    "expiringCerts": "Expiring Certificates",
+    "tierDistribution": "Certification Tier Distribution",
+    "noData": "No data available"
+  },
+  "hotels": {
+    "title": "Hotels",
+    "add": "Add Hotel",
+    "name": "Hotel Name",
+    "address": "Address",
+    "city": "City",
+    "state": "State",
+    "country": "Country",
+    "phone": "Phone",
+    "email": "Email",
+    "pic": "Person in Charge",
+    "memberId": "MYBHA Member ID",
+    "rooms": "Total Rooms",
+    "status": "Status",
+    "active": "Active",
+    "inactive": "Inactive",
+    "save": "Save Hotel",
+    "edit": "Edit",
+    "auditHistory": "Audit History",
+    "noCerts": "No certificates yet"
+  },
+  "audits": {
+    "title": "Audits",
+    "new": "New Audit",
+    "selectHotel": "Select Hotel",
+    "auditType": "Audit Type",
+    "selfAudit": "Self-Audit",
+    "conformityAssessment": "Conformity Assessment",
+    "status": {
+      "draft": "Draft",
+      "in_progress": "In Progress",
+      "submitted": "Submitted",
+      "approved": "Approved",
+      "rejected": "Rejected"
+    },
+    "progress": "Progress",
+    "mandatory": "Mandatory Requirements",
+    "silver": "Silver Bonus",
+    "gold": "Gold Bonus",
+    "pass": "Pass",
+    "fail": "Fail",
+    "notes": "Notes",
+    "uploadPhoto": "Upload Photo",
+    "changePhoto": "Change Photo",
+    "submit": "Submit Audit",
+    "approve": "Approve & Issue Certificate",
+    "reject": "Reject",
+    "save": "Save Progress",
+    "categories": {
+      "Room Facilities": "Room Facilities",
+      "Prayer Amenities": "Prayer Amenities",
+      "Reception Services": "Reception Services",
+      "Food & Beverage": "Food & Beverage",
+      "Housekeeping": "Housekeeping",
+      "Premises Policy": "Premises Policy",
+      "Staff Welfare": "Staff Welfare",
+      "Entertainment": "Entertainment",
+      "Decor & Design": "Décor & Design",
+      "Documentation": "Documentation",
+      "Training": "Training",
+      "Guest Services": "Guest Services"
+    }
+  },
+  "certificates": {
+    "title": "Certificates",
+    "certNumber": "Certificate No.",
+    "issuedDate": "Issued",
+    "expiryDate": "Expires",
+    "tier": "Tier",
+    "download": "Download PDF",
+    "export": "Export Excel",
+    "active": "Active",
+    "revoked": "Revoked",
+    "expired": "Expired",
+    "expiresIn": "Expires in {days} days",
+    "expiresSoon": "Expires soon",
+    "tiers": {
+      "bronze": "Bronze",
+      "silver": "Silver",
+      "gold": "Gold"
+    }
+  },
+  "scoring": {
+    "bronze": "Bronze ★★★",
+    "silver": "Silver ★★★★",
+    "gold": "Gold ★★★★★",
+    "notEligible": "Not eligible — mandatory requirements not met",
+    "mandatoryFailed": "Mandatory items failed",
+    "progressToSilver": "Progress to Silver: {current}/{required} silver items",
+    "progressToGold": "Progress to Gold: {current}/{required} gold items"
+  },
+  "auth": {
+    "login": "Sign In",
+    "email": "Email address",
+    "password": "Password",
+    "signIn": "Sign In",
+    "loading": "Signing in..."
+  },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "view": "View",
+    "back": "Back",
+    "next": "Next",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "success": "Success",
+    "confirm": "Confirm",
+    "search": "Search",
+    "filter": "Filter",
+    "all": "All",
+    "none": "None",
+    "yes": "Yes",
+    "no": "No",
+    "notAnswered": "Not answered"
+  }
+}
