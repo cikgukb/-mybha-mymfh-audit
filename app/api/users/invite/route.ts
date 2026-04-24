@@ -31,11 +31,19 @@ export async function POST(request: NextRequest) {
       .eq('id', data.user.id)
   }
 
-  // Send password reset email so user can set their own password
-  await supabase.auth.admin.generateLink({
+  // Generate recovery link so admin can share manually
+  const { data: linkData, error: linkError } = await supabase.auth.admin.generateLink({
     type: 'recovery',
     email,
   })
 
-  return NextResponse.json({ success: true, userId: data.user?.id })
+  if (linkError) {
+    return NextResponse.json({ error: linkError.message }, { status: 400 })
+  }
+
+  return NextResponse.json({
+    success: true,
+    userId: data.user?.id,
+    actionLink: linkData?.properties?.action_link,
+  })
 }

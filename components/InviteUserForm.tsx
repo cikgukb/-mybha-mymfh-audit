@@ -14,12 +14,16 @@ export default function InviteUserForm({ hotels }: Props) {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const [success, setSuccess] = useState('')
+  const [actionLink, setActionLink] = useState('')
+  const [copied, setCopied] = useState(false)
 
   async function handleInvite(e: React.FormEvent) {
     e.preventDefault()
     setLoading(true)
     setError('')
     setSuccess('')
+    setActionLink('')
+    setCopied(false)
 
     const res = await fetch('/api/users/invite', {
       method: 'POST',
@@ -33,10 +37,18 @@ export default function InviteUserForm({ hotels }: Props) {
     if (!res.ok) {
       setError(data.error)
     } else {
-      setSuccess(`User ${form.email} created. They can log in and set a password via "Forgot Password".`)
+      setSuccess(`User ${form.email} created. Copy the link below and send it to the user.`)
+      setActionLink(data.actionLink ?? '')
       setForm({ email: '', full_name: '', role: 'hotel_manager', hotel_id: '' })
       router.refresh()
     }
+  }
+
+  async function copyLink() {
+    if (!actionLink) return
+    await navigator.clipboard.writeText(actionLink)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
   }
 
   return (
@@ -54,6 +66,29 @@ export default function InviteUserForm({ hotels }: Props) {
 
           {error && <div className="mb-3 p-2 bg-red-50 text-red-600 text-xs rounded-lg">{error}</div>}
           {success && <div className="mb-3 p-2 bg-green-50 text-green-700 text-xs rounded-lg">{success}</div>}
+
+          {actionLink && (
+            <div className="mb-3 p-3 bg-blue-50 border border-blue-200 rounded-lg">
+              <p className="text-xs font-medium text-blue-900 mb-2">Password Setup Link (valid ~1 hour):</p>
+              <div className="flex gap-2 items-start">
+                <textarea
+                  readOnly
+                  value={actionLink}
+                  className="flex-1 px-2 py-1.5 text-xs border border-blue-200 rounded bg-white text-gray-700 font-mono break-all resize-none"
+                  rows={3}
+                  onClick={e => (e.target as HTMLTextAreaElement).select()}
+                />
+                <button
+                  type="button"
+                  onClick={copyLink}
+                  className="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium rounded whitespace-nowrap"
+                >
+                  {copied ? 'Copied!' : 'Copy'}
+                </button>
+              </div>
+              <p className="text-xs text-blue-700 mt-2">Send this link to the user via WhatsApp/email. They click it to set password and login.</p>
+            </div>
+          )}
 
           <form onSubmit={handleInvite} className="space-y-3">
             <div>
