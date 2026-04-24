@@ -89,7 +89,8 @@ Open http://localhost:3000
 4. Deploy
 
 ## Languages
-Switch UI language using the EN | BM | ع switcher in the top-right header.
+Switch UI language using the EN | BM | 中文 | 日本 switcher in the top-right header.
 - EN = English
 - BM = Bahasa Malaysia
-- ع = Arabic (RTL layout auto-enabled)
+- 中文 = Mandarin Chinese
+- 日本 = Japanese

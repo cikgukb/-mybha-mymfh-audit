@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Noto+Sans+JP:wght@400;600;700&display=swap');
 
 :root {
   --mybha-gold: #C9A84C;
@@ -10,9 +10,8 @@
   --mybha-gold-dark: #9A7A2E;
 }
 
-[dir="rtl"] {
-  font-family: 'Noto Sans Arabic', sans-serif;
-}
+[lang="zh"] { font-family: 'Noto Sans SC', sans-serif; }
+[lang="ja"] { font-family: 'Noto Sans JP', sans-serif; }
 
 .tier-bronze { @apply bg-amber-50 text-amber-800 border-amber-300; }
 .tier-silver { @apply bg-slate-50 text-slate-700 border-slate-300; }

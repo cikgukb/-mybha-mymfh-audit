@@ -1,6 +1,10 @@
 export function formatDate(date: string | Date, locale = 'en'): string {
   const d = typeof date === 'string' ? new Date(date) : date
-  return d.toLocaleDateString(locale === 'ms' ? 'ms-MY' : locale === 'ar' ? 'ar-SA' : 'en-MY', {
+  const tag =
+    locale === 'ms' ? 'ms-MY' :
+    locale === 'zh' ? 'zh-CN' :
+    locale === 'ja' ? 'ja-JP' : 'en-MY'
+  return d.toLocaleDateString(tag, {
     day: 'numeric',
     month: 'long',
     year: 'numeric',

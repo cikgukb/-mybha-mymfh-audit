@@ -236,8 +236,14 @@ export default function AuditChecklist({
     triggerAutoSave(updated)
   }
 
-  const labelKey = locale === 'ms' ? 'label_ms' : locale === 'ar' ? 'label_ar' : 'label_en'
-  const descKey = locale === 'ms' ? 'description_ms' : locale === 'ar' ? 'description_ar' : 'description_en'
+  const labelKey =
+    locale === 'ms' ? 'label_ms' :
+    locale === 'zh' ? 'label_zh' :
+    locale === 'ja' ? 'label_ja' : 'label_en'
+  const descKey =
+    locale === 'ms' ? 'description_ms' :
+    locale === 'zh' ? 'description_zh' :
+    locale === 'ja' ? 'description_ja' : 'description_en'
 
   return (
     <div className="max-w-4xl space-y-6">

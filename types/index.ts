@@ -35,10 +35,12 @@ export interface ChecklistItem {
   category: string
   label_en: string
   label_ms: string
-  label_ar: string | null
+  label_zh: string | null
+  label_ja: string | null
   description_en: string | null
   description_ms: string | null
-  description_ar: string | null
+  description_zh: string | null
+  description_ja: string | null
   sort_order: number
   is_active: boolean
 }
@@ -104,6 +106,8 @@ export interface Notification {
   certificate_id: string | null
   message_en: string
   message_ms: string | null
+  message_zh: string | null
+  message_ja: string | null
   is_read: boolean
   created_at: string
   hotels?: Hotel

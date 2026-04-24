@@ -1,0 +1,148 @@
+{
+  "app": {
+    "name": "MYBHA MyMFH 監査",
+    "tagline": "ムスリムフレンドリーホテル認証システム"
+  },
+  "nav": {
+    "dashboard": "ダッシュボード",
+    "hotels": "ホテル",
+    "audits": "監査",
+    "certificates": "証明書",
+    "settings": "設定",
+    "logout": "ログアウト"
+  },
+  "dashboard": {
+    "title": "ダッシュボード",
+    "welcome": "おかえりなさい",
+    "stats": {
+      "totalHotels": "ホテル総数",
+      "activeHotels": "稼働中のホテル",
+      "totalAudits": "監査総数",
+      "pendingAudits": "レビュー待ち",
+      "activeCerts": "有効な証明書",
+      "expiringCerts": "期限切れ間近（90日）"
+    },
+    "recentAudits": "最近の監査",
+    "expiringCerts": "期限切れ間近の証明書",
+    "tierDistribution": "認証ティア分布",
+    "noData": "データがありません"
+  },
+  "hotels": {
+    "title": "ホテル",
+    "add": "ホテルを追加",
+    "name": "ホテル名",
+    "address": "住所",
+    "city": "市",
+    "state": "州",
+    "country": "国",
+    "phone": "電話",
+    "email": "メール",
+    "pic": "担当者",
+    "memberId": "MYBHA会員ID",
+    "rooms": "部屋総数",
+    "status": "ステータス",
+    "active": "稼働中",
+    "inactive": "停止中",
+    "save": "ホテルを保存",
+    "edit": "編集",
+    "auditHistory": "監査履歴",
+    "noCerts": "証明書なし"
+  },
+  "audits": {
+    "title": "監査",
+    "new": "新規監査",
+    "selectHotel": "ホテルを選択",
+    "auditType": "監査タイプ",
+    "selfAudit": "自己監査",
+    "conformityAssessment": "適合性評価",
+    "status": {
+      "draft": "下書き",
+      "in_progress": "進行中",
+      "submitted": "提出済み",
+      "approved": "承認済み",
+      "rejected": "却下"
+    },
+    "progress": "進捗",
+    "mandatory": "必須要件",
+    "silver": "シルバーボーナス",
+    "gold": "ゴールドボーナス",
+    "pass": "合格",
+    "fail": "不合格",
+    "notes": "メモ",
+    "uploadPhoto": "写真をアップロード",
+    "changePhoto": "写真を変更",
+    "submit": "監査を提出",
+    "approve": "承認して証明書を発行",
+    "reject": "却下",
+    "save": "進捗を保存",
+    "categories": {
+      "Room Facilities": "客室設備",
+      "Prayer Amenities": "礼拝設備",
+      "Reception Services": "フロントサービス",
+      "Food & Beverage": "飲食",
+      "Housekeeping": "ハウスキーピング",
+      "Premises Policy": "施設ポリシー",
+      "Staff Welfare": "スタッフ福利厚生",
+      "Entertainment": "エンターテインメント",
+      "Decor & Design": "装飾・デザイン",
+      "Documentation": "文書管理",
+      "Training": "研修",
+      "Guest Services": "ゲストサービス"
+    }
+  },
+  "certificates": {
+    "title": "証明書",
+    "certNumber": "証明書番号",
+    "issuedDate": "発行日",
+    "expiryDate": "有効期限",
+    "tier": "ティア",
+    "download": "PDFをダウンロード",
+    "export": "Excelをエクスポート",
+    "active": "有効",
+    "revoked": "取消済み",
+    "expired": "期限切れ",
+    "expiresIn": "あと{days}日で期限切れ",
+    "expiresSoon": "期限切れ間近",
+    "tiers": {
+      "bronze": "ブロンズ",
+      "silver": "シルバー",
+      "gold": "ゴールド"
+    }
+  },
+  "scoring": {
+    "bronze": "ブロンズ ★★★",
+    "silver": "シルバー ★★★★",
+    "gold": "ゴールド ★★★★★",
+    "notEligible": "資格なし — 必須要件を満たしていません",
+    "mandatoryFailed": "必須項目が不合格",
+    "progressToSilver": "シルバーへの進捗：{current}/{required} 項目",
+    "progressToGold": "ゴールドへの進捗：{current}/{required} 項目"
+  },
+  "auth": {
+    "login": "ログイン",
+    "email": "メールアドレス",
+    "password": "パスワード",
+    "signIn": "ログイン",
+    "loading": "ログイン中..."
+  },
+  "common": {
+    "save": "保存",
+    "cancel": "キャンセル",
+    "delete": "削除",
+    "edit": "編集",
+    "view": "表示",
+    "back": "戻る",
+    "next": "次へ",
+    "loading": "読み込み中...",
+    "error": "エラーが発生しました",
+    "success": "成功",
+    "confirm": "確認",
+    "search": "検索",
+    "filter": "フィルター",
+    "all": "すべて",
+    "none": "なし",
+    "yes": "はい",
+    "no": "いいえ",
+    "notAnswered": "未回答"
+  }
+}
