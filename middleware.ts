@@ -42,7 +42,7 @@ export async function middleware(request: NextRequest) {
   const { data: { user } } = await supabase.auth.getUser()
 
   // Determine locale from pathname
-  const localeMatch = pathname.match(/^\/(en|ms|ar)/)
+  const localeMatch = pathname.match(/^\/(en|ms|zh|ja)/)
   const locale = localeMatch ? localeMatch[1] : defaultLocale
   const pathWithoutLocale = localeMatch ? pathname.slice(localeMatch[0].length) || '/' : pathname
 

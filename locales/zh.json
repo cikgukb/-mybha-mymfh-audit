@@ -1,0 +1,148 @@
+{
+  "app": {
+    "name": "MYBHA MyMFH 审核",
+    "tagline": "穆斯林友好酒店认证系统"
+  },
+  "nav": {
+    "dashboard": "仪表板",
+    "hotels": "酒店",
+    "audits": "审核",
+    "certificates": "证书",
+    "settings": "设置",
+    "logout": "退出"
+  },
+  "dashboard": {
+    "title": "仪表板",
+    "welcome": "欢迎回来",
+    "stats": {
+      "totalHotels": "酒店总数",
+      "activeHotels": "活跃酒店",
+      "totalAudits": "审核总数",
+      "pendingAudits": "待审核",
+      "activeCerts": "有效证书",
+      "expiringCerts": "即将到期 (90天)"
+    },
+    "recentAudits": "最近审核",
+    "expiringCerts": "即将到期的证书",
+    "tierDistribution": "认证级别分布",
+    "noData": "暂无数据"
+  },
+  "hotels": {
+    "title": "酒店",
+    "add": "添加酒店",
+    "name": "酒店名称",
+    "address": "地址",
+    "city": "城市",
+    "state": "州",
+    "country": "国家",
+    "phone": "电话",
+    "email": "电子邮件",
+    "pic": "负责人",
+    "memberId": "MYBHA 会员编号",
+    "rooms": "房间总数",
+    "status": "状态",
+    "active": "活跃",
+    "inactive": "非活跃",
+    "save": "保存酒店",
+    "edit": "编辑",
+    "auditHistory": "审核记录",
+    "noCerts": "暂无证书"
+  },
+  "audits": {
+    "title": "审核",
+    "new": "新审核",
+    "selectHotel": "选择酒店",
+    "auditType": "审核类型",
+    "selfAudit": "自我审核",
+    "conformityAssessment": "合规评估",
+    "status": {
+      "draft": "草稿",
+      "in_progress": "进行中",
+      "submitted": "已提交",
+      "approved": "已批准",
+      "rejected": "已拒绝"
+    },
+    "progress": "进度",
+    "mandatory": "强制要求",
+    "silver": "银级奖励",
+    "gold": "金级奖励",
+    "pass": "合规",
+    "fail": "不合规",
+    "notes": "备注",
+    "uploadPhoto": "上传照片",
+    "changePhoto": "更换照片",
+    "submit": "提交审核",
+    "approve": "批准并签发证书",
+    "reject": "拒绝",
+    "save": "保存进度",
+    "categories": {
+      "Room Facilities": "客房设施",
+      "Prayer Amenities": "祈祷设施",
+      "Reception Services": "前台服务",
+      "Food & Beverage": "餐饮",
+      "Housekeeping": "客房清洁",
+      "Premises Policy": "场所政策",
+      "Staff Welfare": "员工福利",
+      "Entertainment": "娱乐",
+      "Decor & Design": "装饰与设计",
+      "Documentation": "文件",
+      "Training": "培训",
+      "Guest Services": "宾客服务"
+    }
+  },
+  "certificates": {
+    "title": "证书",
+    "certNumber": "证书编号",
+    "issuedDate": "签发日期",
+    "expiryDate": "到期日期",
+    "tier": "级别",
+    "download": "下载 PDF",
+    "export": "导出 Excel",
+    "active": "有效",
+    "revoked": "已撤销",
+    "expired": "已过期",
+    "expiresIn": "{days} 天后到期",
+    "expiresSoon": "即将到期",
+    "tiers": {
+      "bronze": "铜",
+      "silver": "银",
+      "gold": "金"
+    }
+  },
+  "scoring": {
+    "bronze": "铜 ★★★",
+    "silver": "银 ★★★★",
+    "gold": "金 ★★★★★",
+    "notEligible": "不合格 — 未满足强制要求",
+    "mandatoryFailed": "强制项目未通过",
+    "progressToSilver": "银级进度：{current}/{required} 银级项目",
+    "progressToGold": "金级进度：{current}/{required} 金级项目"
+  },
+  "auth": {
+    "login": "登录",
+    "email": "电子邮件地址",
+    "password": "密码",
+    "signIn": "登录",
+    "loading": "登录中..."
+  },
+  "common": {
+    "save": "保存",
+    "cancel": "取消",
+    "delete": "删除",
+    "edit": "编辑",
+    "view": "查看",
+    "back": "返回",
+    "next": "下一步",
+    "loading": "加载中...",
+    "error": "发生错误",
+    "success": "成功",
+    "confirm": "确认",
+    "search": "搜索",
+    "filter": "筛选",
+    "all": "全部",
+    "none": "无",
+    "yes": "是",
+    "no": "否",
+    "notAnswered": "未回答"
+  }
+}

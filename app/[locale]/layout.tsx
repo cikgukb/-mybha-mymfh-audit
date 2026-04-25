@@ -18,11 +18,10 @@ export default async function LocaleLayout({
   if (!locales.includes(locale as typeof locales[number])) notFound()
 
   const messages = await getMessages()
-  const dir = locale === 'ar' ? 'rtl' : 'ltr'
 
   return (
     <NextIntlClientProvider messages={messages}>
-      <div lang={locale} dir={dir} className="bg-gray-50 text-gray-900 antialiased min-h-screen">
+      <div lang={locale} dir="ltr" className="bg-gray-50 text-gray-900 antialiased min-h-screen">
         {children}
       </div>
     </NextIntlClientProvider>
