@@ -36,10 +36,9 @@ export default function ResetPasswordPage() {
     <div className="min-h-screen bg-mybha-black flex items-center justify-center px-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-mybha-gold mb-4">
-            <span className="text-3xl font-bold text-white">M</span>
-          </div>
-          <h1 className="text-2xl font-bold text-white">MYBHA MyMFH</h1>
+          <img src="/logo.png" alt="MyBHA" className="inline-block w-24 h-24 rounded-2xl mb-4 shadow-lg" />
+          <h1 className="text-2xl font-bold text-white">MyBHA</h1>
+          <p className="text-mybha-gold text-xs mt-1">Muslim Friendly Hospitality</p>
         </div>
 
         <div className="bg-white rounded-2xl shadow-xl p-8">

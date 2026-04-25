@@ -63,10 +63,10 @@ export default function Sidebar({ locale, role }: SidebarProps) {
       <aside className="hidden md:flex w-56 bg-mybha-black text-white flex-col shrink-0">
         <div className="px-5 py-5 border-b border-white/10">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-mybha-gold rounded-lg flex items-center justify-center text-sm font-bold">M</div>
+            <img src="/logo.png" alt="MyBHA" className="w-10 h-10 rounded-lg shrink-0" />
             <div>
-              <div className="text-xs font-bold leading-none">MYBHA</div>
-              <div className="text-[10px] text-mybha-gold leading-none mt-0.5">MyMFH Audit</div>
+              <div className="text-xs font-bold leading-none">MyBHA</div>
+              <div className="text-[10px] text-mybha-gold leading-none mt-0.5">Muslim Friendly Hospitality</div>
             </div>
           </div>
         </div>
@@ -81,8 +81,8 @@ export default function Sidebar({ locale, role }: SidebarProps) {
       {/* ── Mobile top bar ── */}
       <div className="md:hidden fixed top-0 left-0 right-0 z-50 bg-mybha-black text-white flex items-center justify-between px-4 py-3 shadow-lg">
         <div className="flex items-center gap-2">
-          <div className="w-7 h-7 bg-mybha-gold rounded-lg flex items-center justify-center text-xs font-bold">M</div>
-          <span className="text-sm font-bold">MYBHA MyMFH</span>
+          <img src="/logo.png" alt="MyBHA" className="w-8 h-8 rounded-lg" />
+          <span className="text-sm font-bold">MyBHA</span>
         </div>
         <div className="flex items-center gap-2">
           <div className="[&>div]:border-white/20 [&_button:not(.active)]:text-white/60">
