@@ -11,7 +11,7 @@ export default async function NewAuditPage({ params }: { params: { locale: strin
 
   const { data: hotels } = await supabase
     .from('hotels')
-    .select('id, name, city')
+    .select('id, name, city, hotel_type')
     .eq('is_active', true)
     .order('name')
 

@@ -1,6 +1,6 @@
 export type UserRole = 'admin' | 'auditor' | 'hotel_manager'
 export type AuditStatus = 'draft' | 'in_progress' | 'submitted' | 'approved' | 'rejected'
-export type CertTier = 'bronze' | 'silver' | 'gold'
+export type CertTier = 'bronze' | 'silver' | 'gold' | 'three_star' | 'four_star' | 'five_star'
 export type ChecklistTier = 'mandatory' | 'silver' | 'gold'
 
 export interface Profile {

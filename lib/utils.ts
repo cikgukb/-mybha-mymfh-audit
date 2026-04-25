@@ -32,7 +32,11 @@ export function getExpiryColor(status: ReturnType<typeof getExpiryStatus>): stri
 
 export function generateCertNumber(tier: string): string {
   const year = new Date().getFullYear()
-  const tierCode = tier === 'gold' ? 'G' : tier === 'silver' ? 'S' : 'B'
+  const tierCodes: Record<string, string> = {
+    gold: 'G', silver: 'S', bronze: 'B',
+    five_star: '5S', four_star: '4S', three_star: '3S',
+  }
+  const tierCode = tierCodes[tier] ?? 'X'
   const random = Math.floor(Math.random() * 9000) + 1000
   return `MYBHA-${tierCode}-${year}-${random}`
 }
