@@ -21,7 +21,7 @@ export default async function DashboardPage({ params }: { params: { locale: stri
   const [hotelsRes, auditsRes, certsRes] = await Promise.all([
     supabase.from('hotels').select('id, is_active', { count: 'exact' }),
     supabase.from('audits')
-      .select('id, status, created_at, tier, hotels(name)', { count: 'exact' })
+      .select('id, status, created_at, tier, mfhc_result, total_score, hotels(name)', { count: 'exact' })
       .order('created_at', { ascending: false })
       .limit(5),
     supabase.from('certificates')
@@ -40,8 +40,8 @@ export default async function DashboardPage({ params }: { params: { locale: stri
     return days >= 0 && days <= 90
   })
 
-  const tierBreakdown = { bronze: 0, silver: 0, gold: 0 }
-  certs.forEach(c => { tierBreakdown[c.tier as keyof typeof tierBreakdown]++ })
+  const tierBreakdown = { bronze: 0, silver: 0, gold: 0, three_star: 0, four_star: 0, five_star: 0 }
+  certs.forEach(c => { if (tierBreakdown[c.tier as keyof typeof tierBreakdown] !== undefined) tierBreakdown[c.tier as keyof typeof tierBreakdown]++ })
 
   const stats: Stats = {
     totalHotels: hotels.length,
@@ -50,7 +50,11 @@ export default async function DashboardPage({ params }: { params: { locale: stri
     pendingAudits: recentAudits.filter(a => a.status === 'submitted').length,
     activeCerts: certs.length,
     expiringCerts: expiringCerts.length,
-    tierBreakdown,
+    tierBreakdown: {
+      bronze: tierBreakdown.bronze + tierBreakdown.three_star,
+      silver: tierBreakdown.silver + tierBreakdown.four_star,
+      gold: tierBreakdown.gold + tierBreakdown.five_star,
+    },
   }
 
   return (
@@ -85,7 +89,9 @@ export default async function DashboardPage({ params }: { params: { locale: stri
                     <p className="text-xs text-gray-400">{formatDate(audit.created_at, params.locale)}</p>
                   </div>
                   <div className="flex items-center gap-2">
-                    {audit.tier && <TierBadge tier={audit.tier} size="sm" />}
+                    {audit.mfhc_result && ['three_star','four_star','five_star'].includes(audit.mfhc_result)
+                      ? <TierBadge tier={audit.mfhc_result} size="sm" />
+                      : audit.tier && <TierBadge tier={audit.tier} size="sm" />}
                     <StatusBadge status={audit.status} />
                   </div>
                 </div>
@@ -101,23 +107,25 @@ export default async function DashboardPage({ params }: { params: { locale: stri
             <p className="text-gray-400 text-sm">{t('noData')}</p>
           ) : (
             <div className="space-y-3">
-              {(['gold', 'silver', 'bronze'] as const).map(tier => (
-                <div key={tier} className="flex items-center gap-3">
-                  <TierBadge tier={tier} size="sm" />
-                  <div className="flex-1 bg-gray-100 rounded-full h-2">
-                    <div
-                      className={`h-2 rounded-full ${
-                        tier === 'gold' ? 'bg-yellow-400' :
-                        tier === 'silver' ? 'bg-slate-400' : 'bg-amber-600'
-                      }`}
-                      style={{ width: `${certs.length > 0 ? (tierBreakdown[tier] / certs.length) * 100 : 0}%` }}
-                    />
+              {([
+                { key: 'five_star', label: 'gold', barColor: 'bg-yellow-400' },
+                { key: 'four_star', label: 'silver', barColor: 'bg-amber-500' },
+                { key: 'three_star', label: 'bronze', barColor: 'bg-orange-500' },
+              ] as const).map(({ key, label, barColor }) => {
+                const count = tierBreakdown[key as keyof typeof tierBreakdown] ?? 0
+                return (
+                  <div key={key} className="flex items-center gap-3">
+                    <TierBadge tier={key} size="sm" />
+                    <div className="flex-1 bg-gray-100 rounded-full h-2">
+                      <div
+                        className={`h-2 rounded-full ${barColor}`}
+                        style={{ width: `${certs.length > 0 ? (count / certs.length) * 100 : 0}%` }}
+                      />
+                    </div>
+                    <span className="text-sm font-medium text-gray-700 w-6">{count}</span>
                   </div>
-                  <span className="text-sm font-medium text-gray-700 w-6">
-                    {tierBreakdown[tier]}
-                  </span>
-                </div>
-              ))}
+                )
+              })}
             </div>
           )}
         </div>
