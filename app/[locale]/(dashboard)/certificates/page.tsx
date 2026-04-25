@@ -30,8 +30,10 @@ export default async function CertificatesPage({ params }: { params: { locale: s
             <div
               key={cert.id}
               className={`bg-white rounded-xl border-2 p-5 ${
-                cert.tier === 'gold' ? 'border-yellow-200' :
-                cert.tier === 'silver' ? 'border-slate-200' : 'border-amber-200'
+                cert.tier === 'gold' || cert.tier === 'five_star' ? 'border-yellow-200' :
+                cert.tier === 'silver' || cert.tier === 'four_star' ? 'border-amber-200' :
+                cert.tier === 'bronze' || cert.tier === 'three_star' ? 'border-orange-200' :
+                'border-gray-200'
               }`}
             >
               {/* Header */}
