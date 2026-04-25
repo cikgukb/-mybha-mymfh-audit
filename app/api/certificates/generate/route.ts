@@ -20,22 +20,20 @@ export async function GET(request: NextRequest) {
 
   const tierStars: Record<string, string> = { gold: '★★★★★', silver: '★★★★', bronze: '★★★' }
   const tierLabel: Record<string, Record<string, string>> = {
-    gold:   { en: 'Gold',   ms: 'Emas',   ar: 'ذهبي' },
-    silver: { en: 'Silver', ms: 'Perak',  ar: 'فضي' },
-    bronze: { en: 'Bronze', ms: 'Gangsa', ar: 'برونزي' },
+    gold:   { en: 'Gold',   ms: 'Emas',   zh: '金',   ja: 'ゴールド' },
+    silver: { en: 'Silver', ms: 'Perak',  zh: '银',   ja: 'シルバー' },
+    bronze: { en: 'Bronze', ms: 'Gangsa', zh: '铜',   ja: 'ブロンズ' },
   }
-  const isArabic = locale === 'ar'
-
   const html = `<!DOCTYPE html>
-<html lang="${locale}" dir="${isArabic ? 'rtl' : 'ltr'}">
+<html lang="${locale}" dir="ltr">
 <head>
 <meta charset="utf-8"/>
 <title>MYBHA Certificate - ${cert.cert_number}</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Noto+Sans+Arabic:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Noto+Sans+SC:wght@400;600;700&family=Noto+Sans+JP:wght@400;600;700&display=swap');
   * { margin:0; padding:0; box-sizing:border-box; }
   body {
-    font-family: ${isArabic ? "'Noto Sans Arabic'" : "'Cinzel', 'Times New Roman'"}, serif;
+    font-family: ${locale === 'zh' ? "'Noto Sans SC'" : locale === 'ja' ? "'Noto Sans JP'" : "'Cinzel', 'Times New Roman'"}, serif;
     background: #0a0a0a;
     display: flex; align-items: center; justify-content: center;
     min-height: 100vh; padding: 20px;

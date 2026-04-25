@@ -21,7 +21,7 @@ const config: Config = {
         gold: '#C9A84C',
       },
       fontFamily: {
-        arabic: ['Noto Sans Arabic', 'sans-serif'],
+        cjk: ['Noto Sans SC', 'Noto Sans JP', 'sans-serif'],
       },
     },
   },

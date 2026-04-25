@@ -236,8 +236,8 @@ export default function AuditChecklist({
     triggerAutoSave(updated)
   }
 
-  const labelKey = locale === 'ms' ? 'label_ms' : locale === 'ar' ? 'label_ar' : 'label_en'
-  const descKey = locale === 'ms' ? 'description_ms' : locale === 'ar' ? 'description_ar' : 'description_en'
+  const labelKey = locale === 'ms' ? 'label_ms' : 'label_en'
+  const descKey = locale === 'ms' ? 'description_ms' : 'description_en'
 
   return (
     <div className="max-w-4xl space-y-6">
@@ -436,7 +436,7 @@ export default function AuditChecklist({
                                   resp?.passed === true ? 'bg-green-50 text-green-700' :
                                   resp?.passed === false ? 'bg-red-50 text-red-600' : 'bg-gray-50 text-gray-400'
                                 }`}>
-                                  {resp?.passed === true ? '✓ Pass' : resp?.passed === false ? '✗ Fail' : '— Not answered'}
+                                  {resp?.passed === true ? `✓ ${t('pass')}` : resp?.passed === false ? `✗ ${t('fail')}` : '— Not answered'}
                                 </span>
                                 {resp?.notes && <span className="text-xs text-gray-500">{resp.notes}</span>}
                                 {resp?.photo_url && (

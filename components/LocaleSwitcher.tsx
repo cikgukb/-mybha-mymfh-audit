@@ -3,7 +3,7 @@
 import { useRouter, usePathname } from 'next/navigation'
 import { locales } from '@/i18n'
 
-const labels: Record<string, string> = { en: 'EN', ms: 'BM', ar: 'ع' }
+const labels: Record<string, string> = { en: 'EN', ms: 'BM', zh: '中', ja: '日' }
 
 export default function LocaleSwitcher({ currentLocale }: { currentLocale: string }) {
   const router = useRouter()

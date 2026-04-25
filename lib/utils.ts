@@ -1,6 +1,7 @@
 export function formatDate(date: string | Date, locale = 'en'): string {
   const d = typeof date === 'string' ? new Date(date) : date
-  return d.toLocaleDateString(locale === 'ms' ? 'ms-MY' : locale === 'ar' ? 'ar-SA' : 'en-MY', {
+  const localeMap: Record<string, string> = { ms: 'ms-MY', zh: 'zh-CN', ja: 'ja-JP', en: 'en-MY' }
+  return d.toLocaleDateString(localeMap[locale] ?? 'en-MY', {
     day: 'numeric',
     month: 'long',
     year: 'numeric',
