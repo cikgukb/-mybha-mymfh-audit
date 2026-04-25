@@ -28,7 +28,7 @@ export async function GET(request: NextRequest) {
 <html lang="${locale}" dir="ltr">
 <head>
 <meta charset="utf-8"/>
-<title>MYBHA Certificate - ${cert.cert_number}</title>
+<title>MyBHA Certificate - ${cert.cert_number}</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Noto+Sans+SC:wght@400;600;700&family=Noto+Sans+JP:wght@400;600;700&display=swap');
   * { margin:0; padding:0; box-sizing:border-box; }
@@ -106,7 +106,7 @@ export async function GET(request: NextRequest) {
 
   <div class="header">
     <div class="org-name">Malaysia Budget & Business Hotel Association</div>
-    <div class="title">MYBHA MyMFH</div>
+    <div class="title">MyBHA MFHC</div>
     <div class="subtitle">My Muslim Friendly Hotel — Official Recognition Certificate</div>
   </div>
 
@@ -118,7 +118,7 @@ export async function GET(request: NextRequest) {
     <div class="hotel-address">
       ${[cert.hotels?.address, cert.hotels?.city, cert.hotels?.state, cert.hotels?.country].filter(Boolean).join(', ')}
     </div>
-    <div class="complied">has complied with and fulfilled the requirements of the MYBHA MyMFH Recognition Scheme</div>
+    <div class="complied">has complied with and fulfilled the requirements of the MyBHA Muslim Friendly Hospitality Certification (MFHC)</div>
 
     <div class="tier-block">
       <div class="tier-label">${tierLabel[cert.tier]?.[locale] ?? tierLabel[cert.tier]?.en} Tier</div>
@@ -141,11 +141,11 @@ export async function GET(request: NextRequest) {
 
   <div class="footer">
     <div class="sig-block">
-      <div class="sig-line">Authorized Signatory<br/>MYBHA Director</div>
+      <div class="sig-line">Authorized Signatory<br/>MyBHA Director</div>
     </div>
     <div class="mybha-seal">
       <div class="seal-ring">★</div>
-      <div class="seal-text">MYBHA OFFICIAL</div>
+      <div class="seal-text">MyBHA OFFICIAL</div>
     </div>
     <div class="sig-block">
       <div class="sig-line">${cert.profiles?.full_name ?? 'Auditor'}<br/>Certifying Auditor</div>
