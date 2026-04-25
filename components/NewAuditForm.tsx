@@ -6,7 +6,7 @@ import { useTranslations } from 'next-intl'
 import { createClient } from '@/lib/supabase/client'
 
 interface Props {
-  hotels: { id: string; name: string; city: string | null }[]
+  hotels: { id: string; name: string; city: string | null; hotel_type: string | null }[]
   locale: string
   auditorId: string
   role: string
@@ -29,6 +29,11 @@ export default function NewAuditForm({ hotels, locale, auditorId, role, hotelId 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     if (!selectedHotel) { setError('Select a hotel'); return }
+    const hotel = hotels.find(h => h.id === selectedHotel)
+    if (!hotel?.hotel_type) {
+      setError('Selected hotel has no F&B classification declared. Update hotel record first.')
+      return
+    }
     setLoading(true)
     setError('')
 
@@ -40,6 +45,7 @@ export default function NewAuditForm({ hotels, locale, auditorId, role, hotelId 
         auditor_id: auditorId,
         audit_type: auditType,
         status: 'draft',
+        hotel_type: hotel.hotel_type,
       })
       .select('id')
       .single()
@@ -111,12 +117,14 @@ export default function NewAuditForm({ hotels, locale, auditorId, role, hotelId 
 
         {/* Info box */}
         <div className="bg-mybha-cream rounded-lg p-3 text-xs text-gray-600">
-          <p className="font-medium mb-1">Audit covers 34 checklist items:</p>
+          <p className="font-medium mb-1">MFHC questionnaire — 8 sections, 100 points total:</p>
           <ul className="space-y-0.5 text-gray-500">
-            <li>• 14 mandatory requirements (Bronze certification)</li>
-            <li>• 8 silver bonus items (Silver certification)</li>
-            <li>• 10 gold bonus items (Gold certification)</li>
+            <li>• Sec 1 Guest Room (20) · Sec 2 Public Area (5)</li>
+            <li>• Sec 3 F&B Type A or B (25) · Sec 4 Hygiene (10)</li>
+            <li>• Sec 5 Premise Policy (15) · Sec 6 Staff (10)</li>
+            <li>• Sec 7 Media (5) · Sec 8 Governance (10)</li>
           </ul>
+          <p className="mt-2 text-gray-500">Tiers: 60–74 → 3-Star · 75–89 → 4-Star · 90–100 → 5-Star</p>
         </div>
 
         <div className="flex gap-3">

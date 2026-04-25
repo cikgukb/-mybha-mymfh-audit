@@ -1,6 +1,6 @@
 import { createClient } from '@/lib/supabase/server'
 import { notFound } from 'next/navigation'
-import AuditChecklist from '@/components/AuditChecklist'
+import MFHCQuestionnaire from '@/components/MFHCQuestionnaire'
 
 export default async function AuditDetailPage({
   params,
@@ -9,7 +9,6 @@ export default async function AuditDetailPage({
 }) {
   const supabase = await createClient()
 
-  // Fetch audit separately from joins to isolate RLS issues
   const { data: audit, error: auditError } = await supabase
     .from('audits')
     .select('*')
@@ -17,30 +16,45 @@ export default async function AuditDetailPage({
     .maybeSingle()
 
   if (auditError) console.error('Audit fetch error:', auditError)
-  if (!audit) {
-    console.error('Audit not found for id:', params.id)
-    notFound()
-  }
+  if (!audit) notFound()
 
-  // Fetch hotel separately
   const { data: hotel } = await supabase
     .from('hotels')
     .select('*')
     .eq('id', audit.hotel_id)
     .maybeSingle()
 
-  // Fetch auditor profile separately
   const { data: auditorProfile } = await supabase
     .from('profiles')
     .select('full_name, role')
     .eq('id', audit.auditor_id)
     .maybeSingle()
 
-  const { data: checklistItems } = await supabase
-    .from('checklist_items')
+  // Determine hotel type: audit override → hotel default
+  const hotelType = audit.hotel_type ?? hotel?.hotel_type ?? null
+  if (!hotelType) {
+    // Hotel must declare type before audit can run
+    return (
+      <div className="max-w-2xl mx-auto p-8 bg-white rounded-xl border border-amber-200">
+        <h2 className="text-lg font-bold text-amber-800 mb-2">Hotel type not declared</h2>
+        <p className="text-sm text-gray-600 mb-4">
+          This hotel has not declared its F&B classification (Type A or Type B). The audit cannot start until the
+          hotel record is updated.
+        </p>
+        <a
+          href={`/${params.locale}/hotels/${audit.hotel_id}`}
+          className="inline-block px-4 py-2 bg-mybha-gold text-white rounded-lg text-sm font-medium"
+        >
+          Set hotel type →
+        </a>
+      </div>
+    )
+  }
+
+  const { data: parameters } = await supabase
+    .from('mfhc_parameters')
     .select('*')
     .eq('is_active', true)
-    .order('tier')
     .order('sort_order')
 
   const { data: responses } = await supabase
@@ -57,6 +71,7 @@ export default async function AuditDetailPage({
 
   const auditWithRelations = {
     ...audit,
+    hotel_type: hotelType,
     hotels: hotel,
     profiles: auditorProfile,
   }
@@ -65,15 +80,13 @@ export default async function AuditDetailPage({
   const canApprove = profile?.role === 'admin' && audit.status === 'submitted'
 
   return (
-    <AuditChecklist
-      audit={auditWithRelations as any}
-      checklistItems={checklistItems ?? []}
+    <MFHCQuestionnaire
+      audit={auditWithRelations}
+      parameters={parameters ?? []}
       existingResponses={responses ?? []}
-      locale={params.locale}
       isEditable={isEditable}
       canApprove={canApprove}
       currentUserId={user!.id}
-      currentRole={profile?.role ?? 'hotel_manager'}
     />
   )
 }

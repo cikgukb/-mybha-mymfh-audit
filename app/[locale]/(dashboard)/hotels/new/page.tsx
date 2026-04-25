@@ -14,6 +14,7 @@ export default function NewHotelPage() {
   const [form, setForm] = useState({
     name: '', address: '', city: '', state: '', country: 'Malaysia',
     phone: '', email: '', pic_name: '', mybha_member_id: '', total_rooms: '',
+    hotel_type: '' as '' | 'type_a' | 'type_b',
   })
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
@@ -24,8 +25,15 @@ export default function NewHotelPage() {
     setError('')
 
     const supabase = createClient()
+    if (!form.hotel_type) {
+      setError('Please declare hotel F&B classification (Type A or Type B)')
+      setLoading(false)
+      return
+    }
+
     const { error } = await supabase.from('hotels').insert({
       ...form,
+      hotel_type: form.hotel_type,
       total_rooms: form.total_rooms ? parseInt(form.total_rooms) : null,
     })
 
@@ -63,6 +71,33 @@ export default function NewHotelPage() {
         )}
 
         <form onSubmit={handleSubmit} className="space-y-4">
+          {/* Hotel type — MFHC mandatory declaration */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              F&B Classification <span className="text-red-500">*</span>
+            </label>
+            <div className="grid grid-cols-2 gap-3">
+              {([
+                { value: 'type_a', label: 'Type A — Without In-house F&B', desc: 'No kitchen / food sourced externally' },
+                { value: 'type_b', label: 'Type B — With In-house F&B', desc: 'Restaurant / café / kitchen / minibar' },
+              ] as const).map(opt => (
+                <button
+                  key={opt.value}
+                  type="button"
+                  onClick={() => setForm(prev => ({ ...prev, hotel_type: opt.value }))}
+                  className={`p-3 rounded-xl border-2 text-left transition-all text-sm ${
+                    form.hotel_type === opt.value
+                      ? 'border-mybha-gold bg-yellow-50'
+                      : 'border-gray-200 hover:border-gray-300'
+                  }`}
+                >
+                  <div className="font-medium text-gray-900">{opt.label}</div>
+                  <div className="text-xs text-gray-500 mt-0.5">{opt.desc}</div>
+                </button>
+              ))}
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {fields.map(f => (
               <div key={f.key} className={f.key === 'name' || f.key === 'address' ? 'md:col-span-2' : ''}>
